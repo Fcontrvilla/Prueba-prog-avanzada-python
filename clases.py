@@ -1,5 +1,8 @@
 
 from abc import abstractmethod, ABC
+from error import LargoExcedidoError, SubTippoInvalidoError
+
+
 class Anuncio:
     def __init__(self, ancho, alto, url_archivo, url_click, sub_tipo)
         self.__ancho = ancho if ancho > 0 else 1
@@ -69,9 +72,6 @@ class Anuncio:
 
 
 
-class Campana:
-    pass
-
 
 
 class Video(Anuncio):
@@ -100,10 +100,62 @@ class Video(Anuncio):
 
 
 
-class Display:
+class Display(Anuncio):
     FORMATO = "Display"
     SUB_TIPOS = ("tradicional", "native")
 
-class Social:
+class Social(Anuncio):
     FORMATO = "Social"
     SUB_TIPOS = ("facebook", "linkedin")
+
+
+
+class Campana:
+    def __init__(self, nombre, fecha_inicio, fecha_termino, anuncios):
+        self.__nombre = nombre
+        self.__fecha_inicio = fecha_inicio
+        self.__fecha_termino = fecha_termino
+        self.__anuncios = list[Anuncio]
+
+    def __agregar_anuncios(self, anuncio):
+
+
+        
+
+    @property
+    def nombre(self):
+        return self.__nombre
+        
+    @nombre.setter
+    def nombre(self, nombre):
+        if len(nombre) <= 250:
+            self.__nombre = nombre
+        else:
+            raise LargoExcedidoError("el largo del texto supera 250 aracteres")
+        
+    
+    @property
+    def fecha_inicio(self):
+        return self.__fecha_inicio 
+        
+    @fecha_inicio.setter
+    def fecha_inicio(self, fecha_inicio):
+        self.fecha_inicio = fecha_inicio
+
+
+    
+    @property
+    def fecha_termino(self):
+        return self.__fecha_termino 
+        
+    @fecha_termino.setter
+    def fecha_termino(self, fecha_termino):
+        self.fecha_termino = fecha_termino
+        
+    @property
+    def anuncio(self):
+        return self.__anuncio 
+        
+    def __str__(self):
+        return f"nombre campaña  "
+            
