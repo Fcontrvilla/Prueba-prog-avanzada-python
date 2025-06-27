@@ -8,5 +8,5 @@ class LargoExcedidoError(Error):
     pass
 
 
-class SubTippoInvalidoError(Error):
+class SubTipoInvalidoError(Error):
     pass
