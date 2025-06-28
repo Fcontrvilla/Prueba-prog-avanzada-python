@@ -1,6 +1,6 @@
 
 from abc import abstractmethod , ABC
-from error import LargoExcedidoError
+from error import LargoExcedidoError, SubTipoInvalidoError
 
 class Anuncio(ABC):
     def __init__(self, ancho, alto, url_archivo, url_click, sub_tipo):
@@ -50,7 +50,17 @@ class Anuncio(ABC):
     
     @sub_tipo.setter
     def sub_tipo(self, sub_tipo):
-        self.__sub_tipo = sub_tipo
+        #Video.SUB_TIPOS
+
+        if (isinstance(self,Video) and sub_tipo in Video.SUB_TIPOS
+            or isinstance(self,Social) and sub_tipo in Social.SUB_TIPOS
+            or isinstance(self,Display) and sub_tipo in Display.SUB_TIPOS):
+            self.__sub_tipo = sub_tipo
+        
+        else:
+            raise SubTipoInvalidoError("Error de tipo invalido")
+     
+
 
 
     @staticmethod
