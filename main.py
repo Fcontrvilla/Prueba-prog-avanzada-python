@@ -1,13 +1,18 @@
+from clases import *
+from datetime import date
 
 
-from clases import Campana, Anuncio
+fecha_actual = date.now
+
+campana = Campana("campana 1 ", date.now)
+
+a = Social(2,3,"sadsa","2342","subtipo")
 
 
-"""
-c = Campana("campana1","dads","adasds")
-c.agregar_anuncios()
-print(c.anuncios)
-"""
-a = Anuncio(2, 3, "werwer", "gdgdfg", "subTipo")
+v = Video(12)
 
 
+d = Display(1,2,"asdsa", "asdsad","subtipo")
+
+
+print(a ,  v,  d)

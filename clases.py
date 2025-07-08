@@ -15,7 +15,7 @@ class Anuncio(ABC):
     def ancho(self):
         return self.__ancho
     
-    @ancho.setter
+    @ancho.setter   
     def ancho(self, ancho):
         self.__ancho = ancho
 
@@ -100,8 +100,8 @@ class Campana:
 
     def agregar_anuncios(self):
 
-        estado = True
-        while estado:
+        #estado = True
+        while True:
             try:
                 opcion = int(input("Que tipo de anuncio quieres:  1 -  para video - 2 para display - 3 para social"))
                 if opcion == 1:
@@ -112,8 +112,8 @@ class Campana:
                 elif opcion == 3:
                     new_anuncio = Social()
                 #self.__anuncios.append(new_anuncio)
-                elif opcion == 4:
-                    estado = False
+                else:
+                    break
 
                 self.__anuncios.append(new_anuncio)
 
@@ -205,14 +205,28 @@ class Display(Anuncio):
     def redimensionar_anuncio():
         print( "RECORTE DE VIDEO NO IMPLEMENTADO AÚN")
 
+    def __repr__(self):
+        return f"{Display.FORMATO}"
+
+
+
 
 
 class Social(Anuncio):
     FORMATO = "SOCIAL"
     SUB_TIPOS = ("FACEBOOK" , "LINKEDIN" )
 
+    def __init__(self, ancho, alto, url_archivo, url_click, sub_tipo):
+        super().__init__(ancho, alto, url_archivo, url_click, sub_tipo)
+        
+
     def comprimir_anuncio():
         print("COMPRESIÓN DE VIDEO NO IMPLEMENTADA AÚN")
     
     def redimensionar_anuncio():
         print( "RECORTE DE VIDEO NO IMPLEMENTADO AÚN")
+
+        
+
+    def __repr__(self):
+        return f"{Social.FORMATO}"

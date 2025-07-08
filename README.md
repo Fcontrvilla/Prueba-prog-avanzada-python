@@ -21,7 +21,7 @@ sub_tipo, se debe lanzar una excepción SubTipoInvalidoException.
 ● El método mostrar_formatos es un método estático que muestra en pantalla los
 formatos y sus subtipos asociados disponibles para crear anuncios. Ejemplo:
 FORMATO 1:
-==========
+
 - Subtipo 1
 - Subtipo 2
 Para ello debe referenciar los atributos de clase respectivos que contienen la
